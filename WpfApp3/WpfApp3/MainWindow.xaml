@@ -1,0 +1,57 @@
+﻿<Window x:Class="WpfApp3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="485" Width="900"
+        ResizeMode="NoResize"
+        >
+    <Grid Name="MainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+        <Grid Background="Aquamarine" Grid.Row="1">
+            <Button Content="2X" HorizontalAlignment="Left" Margin="10,0,0,32" Click="X2Zoom" Width="40" Height="20" VerticalAlignment="Bottom"/>
+            <Button Content="3X" HorizontalAlignment="Left" Margin="55,0,0,32" RenderTransformOrigin="0.704,-0.385" Click="X3Zoom" Width="40" Height="20" VerticalAlignment="Bottom"/>
+            <Button Content="5X" HorizontalAlignment="Left" Margin="100,0,0,32" RenderTransformOrigin="0.692,-0.137" Click="X5Zoom" Width="39" Height="20" VerticalAlignment="Bottom"/>
+            <Button Content="Сброс" HorizontalAlignment="Left" Margin="32,0,0,10" Click="Reset" Width="85" Height="20" VerticalAlignment="Bottom"/>
+            <Label Content="Выберите увелечение:" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
+        </Grid>
+        <Grid Grid.Column="1" Width="Auto" Background="Aquamarine" Height="94" Grid.RowSpan="2" VerticalAlignment="Bottom">
+            <Button x:Name="CurveButton" Content="Кривая Коха" VerticalAlignment="Bottom" Height="62" Click="CurveButtonClick" Margin="108,0,0,16" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Width="114"/>
+            <Button x:Name="CarpetButton" Content="Ковер Серпинского" Margin="222,16,0,16" Click="CarpetButtonClick" FontWeight="Bold" HorizontalAlignment="Left" Width="116"/>
+            <Button x:Name="TriangleButton" Content="Треугольник" VerticalAlignment="Bottom" Height="62" Click="TriangleButtonClick" Margin="338,0,0,16" FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Width="120"/>
+            <Button x:Name="CantorButton" Content="Множество Кантора" Margin="458,0,0,16" VerticalAlignment="Bottom" Height="62" Click="CantorButtonClick" FontWeight="Bold" HorizontalAlignment="Left" Width="126"/>
+            <Button x:Name="TreeButton" Content="Дерево" VerticalAlignment="Bottom" Height="62" Click="TreeButtonClick" FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Width="108" Margin="0,0,0,16"/>
+        </Grid>
+        <Grid Grid.Column="0"  Name="SlidersGrid" Background="Aquamarine" >
+            <TextBox x:Name="LevelText" Text="{Binding ElementName=LevelSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Center" Margin="52,58,89,0" FontSize="16" FontWeight="Bold" IsEnabled="False" Height="22" VerticalAlignment="Top" Visibility="Visible"  />
+            <Slider Margin="10,29,0,0" Name="LevelSlider" HorizontalAlignment="Left" Width="150" Height="40" VerticalAlignment="Top" IsSnapToTickEnabled="True" TickFrequency="1" ValueChanged="LevelSliderValueChanged" TickPlacement="TopLeft" Minimum="1" Maximum="10"/>
+            
+            <Slider Margin="10,117,0,0" Name="LeftAngleSlider" HorizontalAlignment="Left" Width="150" Height="40" VerticalAlignment="Top" IsSnapToTickEnabled="True" TickFrequency="15" ValueChanged="LevelSliderValueChanged" TickPlacement="TopLeft" Minimum="15" Maximum="180"/>
+            <TextBox x:Name="LeftAngleText" Text="{Binding ElementName=LeftAngleSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Center" Margin="47,149,0,0" FontSize="16" FontWeight="Bold" IsEnabled="False" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="29" RenderTransformOrigin="0.493,2.196" />
+            
+            <Slider Margin="10,213,0,0" Name="RightAngleSlider" HorizontalAlignment="Left" Width="150" Height="40" VerticalAlignment="Top" IsSnapToTickEnabled="True" TickFrequency="15" ValueChanged="LevelSliderValueChanged" TickPlacement="TopLeft" Minimum="15" Maximum="180"/>
+            <TextBox x:Name="RightAngleText" Text="{Binding ElementName=RightAngleSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Center" Margin="47,244,0,0" FontSize="16" FontWeight="Bold" IsEnabled="False" Height="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="29" RenderTransformOrigin="0.381,1.753" />
+            
+            <Slider Margin="10,299,0,0" x:Name="KoefSlider" HorizontalAlignment="Left" Width="150" Height="28" VerticalAlignment="Top" IsSnapToTickEnabled="True" TickFrequency="0.1" ValueChanged="LevelSliderValueChanged" TickPlacement="TopLeft" Minimum="1.4" Maximum="2.5"/>
+            <TextBox x:Name="KoefText" Text="{Binding Value, ElementName=KoefSlider, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center" Margin="48,327,0,0" FontSize="16" FontWeight="Bold" IsEnabled="False" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="28" />
+        </Grid>
+        <Button Name="btnSaveFile" Click="btnSaveFileClick" Margin="786,0,-693,28" Height="36" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="0">Сохранить</Button >
+        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" Grid.Row="0" Grid.Column="1" Name="scrollViewer">
+            <Canvas x:Name="canvas" Grid.Column="1" Margin="0,-10,0,10"/>
+        </ScrollViewer>
+        <Label Content="Глубина рекурсии" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Левый угол" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,87,0,0" FontSize="16" FontWeight="Bold" Name="LeftAngleLabel"/>
+        <Label Content="Правый угол" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Width="111" Margin="6,184,0,0" Name="RightAngleLabel"/>
+        <Label Content="Коэффицент" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Width="111" Margin="6,267,0,0" Height="29" Name="KoefLabel"/>
+
+    </Grid>
+</Window>

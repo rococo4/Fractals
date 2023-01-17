@@ -1,0 +1,12 @@
+F:\прога\WpfApp3\FractalsLibrary\bin\Debug\net5.0-windows\FractalsLibrary.deps.json
+F:\прога\WpfApp3\FractalsLibrary\bin\Debug\net5.0-windows\FractalsLibrary.dll
+F:\прога\WpfApp3\FractalsLibrary\bin\Debug\net5.0-windows\ref\FractalsLibrary.dll
+F:\прога\WpfApp3\FractalsLibrary\bin\Debug\net5.0-windows\FractalsLibrary.pdb
+F:\прога\WpfApp3\FractalsLibrary\obj\Debug\net5.0-windows\FractalsLibrary.GeneratedMSBuildEditorConfig.editorconfig
+F:\прога\WpfApp3\FractalsLibrary\obj\Debug\net5.0-windows\FractalsLibrary.AssemblyInfoInputs.cache
+F:\прога\WpfApp3\FractalsLibrary\obj\Debug\net5.0-windows\FractalsLibrary.AssemblyInfo.cs
+F:\прога\WpfApp3\FractalsLibrary\obj\Debug\net5.0-windows\FractalsLibrary.csproj.CoreCompileInputs.cache
+F:\прога\WpfApp3\FractalsLibrary\obj\Debug\net5.0-windows\FractalsLibrary.dll
+F:\прога\WpfApp3\FractalsLibrary\obj\Debug\net5.0-windows\ref\FractalsLibrary.dll
+F:\прога\WpfApp3\FractalsLibrary\obj\Debug\net5.0-windows\FractalsLibrary.pdb
+F:\прога\WpfApp3\FractalsLibrary\obj\Debug\net5.0-windows\FractalsLibrary.csproj.AssemblyReference.cache
